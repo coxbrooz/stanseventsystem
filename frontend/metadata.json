@@ -1,0 +1,6 @@
+{
+  "name": "PCEA St. Andrew's Event Board",
+  "description": "An interactive, fully featured scheduling and metrics analysis portal for PCEA St. Andrew's Parish, Nairobi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
