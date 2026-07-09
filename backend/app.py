@@ -7,9 +7,11 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-# Dynamically set origins based on environment
-FRONTEND_URL = os.environ.get("FRONTEND_URL", "*")
-CORS(app, origins=FRONTEND_URL)
+# Configured to accept both local development and your live Vercel app
+CORS(app, origins=[
+    "http://localhost:5173",
+    "https://stanseventsystem.vercel.app"
+])
 
 # Database configuration: Use PostgreSQL on Render, fall back to local SQLite
 DATABASE_URL = os.environ.get("DATABASE_URL")
