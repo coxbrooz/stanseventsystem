@@ -8,7 +8,7 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 
 // Pull environment variable from Vercel/Vite config, fallback to production Render API url
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://stanseventsystem-api.onrender.com";
+const API_BASE_URL = "https://stanseventsystem-api.onrender.com";
 
 export default function App() {
   // Application state controllers
