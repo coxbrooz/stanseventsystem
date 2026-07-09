@@ -1,0 +1,18 @@
+﻿# Python Backend exclusions
+backend/__pycache__/
+backend/.venv/
+backend/venv/
+backend/*.pyc
+
+# Node Frontend exclusions
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+
+# System/IDE exclusions
+.env
+.DS_Store
+.vscode/
+.idea/
