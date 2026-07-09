@@ -7,8 +7,8 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-// API Base configuration pointing to our server-side custom Express backend on Port 3000
-const API_BASE_URL = "";
+// Pull environment variable from Vercel/Vite config, fallback to production Render API url
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://stanseventsystem-api.onrender.com";
 
 export default function App() {
   // Application state controllers
