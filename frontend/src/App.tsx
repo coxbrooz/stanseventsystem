@@ -39,8 +39,8 @@ export default function App() {
       setIsLoading(true);
       
       const [eventsRes, statsRes] = await Promise.all([
-        fetch(`${API_BASE_URL}/api/events`),
-        fetch(`${API_BASE_URL}/api/events/stats`)
+        fetch(`${API_BASE_URL}/api/events/`),
+        fetch(`${API_BASE_URL}/api/events/stats/`)
       ]);
 
       if (!eventsRes.ok) throw new Error("Failed to load cataloged events");
@@ -68,7 +68,7 @@ export default function App() {
   const handleSubmitEvent = async (eventData: Omit<ChurchEvent, "id" | "createdAt"> & { id?: string }) => {
     try {
       const isEdit = !!eventData.id;
-      const url = isEdit ? `${API_BASE_URL}/api/events/${eventData.id}` : `${API_BASE_URL}/api/events`;
+      const url = isEdit ? `${API_BASE_URL}/api/events/${eventData.id}/` : `${API_BASE_URL}/api/events/`;
       const method = isEdit ? "PUT" : "POST";
 
       const response = await fetch(url, {
@@ -97,7 +97,7 @@ export default function App() {
   // API Call: Delete Event
   const handleDeleteEvent = async (id: string) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/events/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/events/${id}/`, {
         method: "DELETE"
       });
 
