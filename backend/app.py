@@ -7,10 +7,12 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-# Configured to accept both local development and your live Vercel app
+# Configured to accept local development, Vercel app, and your new production domain
 CORS(app, origins=[
     "http://localhost:5173",
-    "https://stanseventsystem.vercel.app"
+    "https://stanseventsystem.vercel.app",
+    "https://standsevents.co.ke",
+    "https://www.standsevents.co.ke"
 ])
 
 # Database configuration: Use PostgreSQL on Render, fall back to local SQLite
@@ -170,7 +172,7 @@ def create_event():
 
 @app.route("/api/events/<string:event_id>", methods=["PUT"])
 def update_event(event_id):
-    event = ChurchEvent.query.get(event_id)
+    event = db.session.get(ChurchEvent, event_id)
     if not event:
         return jsonify({"message": "Event not found"}), 404
         
@@ -191,7 +193,7 @@ def update_event(event_id):
 
 @app.route("/api/events/<string:event_id>", methods=["DELETE"])
 def delete_event(event_id):
-    event = ChurchEvent.query.get(event_id)
+    event = db.session.get(ChurchEvent, event_id)
     if not event:
         return jsonify({"message": "Event not found"}), 404
         
